@@ -1,7 +1,7 @@
 package com.example.Student_201904385.dto;
 
 public class HelloRequest {
-    private String name;
+    private String name;            // 변수 선언하고 getter & setter
     private int level;
     private String address;
 
