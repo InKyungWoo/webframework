@@ -1,19 +1,22 @@
 package com.example.Student_201904385.controller;
 
 import com.example.Student_201904385.dto.PostUserRequest;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
-
+@Slf4j
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
+    @ApiOperation(value = "사용자 정보 POST", notes = "swagger 테스트")         // 기능에 설명 달아주기!
     @PostMapping("/post")
     public void post(@RequestBody Map<String, Object> requestData) {
-
+        System.out.println("Test POST");
+        log.info("Test POST");
         requestData.entrySet().forEach(stringObjectEntry -> {
             System.out.println("key : " + stringObjectEntry.getKey()
                     + "value : " + stringObjectEntry.getValue());
