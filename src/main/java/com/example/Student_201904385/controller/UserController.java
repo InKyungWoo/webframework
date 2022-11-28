@@ -22,35 +22,35 @@ public class UserController {
                     + "value : " + stringObjectEntry.getValue());
         });
     }
-
+    @ApiOperation(value = "사용자 정보 POST-OBJECT", notes = "swagger 테스트")
     @PostMapping("/post-object")
     public void postObject(@RequestBody PostUserRequest requestData) {
         System.out.println("Test POST OBJECT");
         System.out.println(requestData.toString());
     }
-
+    @ApiOperation(value = "사용자 정보 PUT", notes = "swagger 테스트")
     @PutMapping("/put")
     public void put(@RequestBody Map<String, Object> requestData) {
         System.out.println("Test PUT");
         requestData.entrySet().forEach(stringObjectEntry -> {
             System.out.println("key : " + stringObjectEntry.getKey() +
-                    "value : " + stringObjectEntry.getValue());
+                    " value : " + stringObjectEntry.getValue());
         });
     }
-
+    @ApiOperation(value = "사용자 정보 PUT-OBJECT", notes = "swagger 테스트")
     @PutMapping("/put-object")
     public void putObject(@RequestBody PostUserRequest requestData) {
         System.out.println("Test PUT OBJECT");
         System.out.println(requestData.toString());
     }
-
+    @ApiOperation(value = "사용자 정보 PUT-OBJECT-ENTITY", notes = "swagger 테스트")
     @PutMapping("put-object-entity")
     public ResponseEntity<PostUserRequest> putObjectEntity(
             @RequestBody PostUserRequest requestData) {
 
         return  ResponseEntity.status(HttpStatus.CREATED).body(requestData);
     }
-
+    @ApiOperation(value = "사용자 정보 GET", notes = "swagger 테스트")
     @GetMapping("/get")
     public PostUserRequest getUser() {
         PostUserRequest user = new PostUserRequest();
@@ -59,7 +59,7 @@ public class UserController {
         return user;
     }
 
-
+    @ApiOperation(value = "사용자 정보 삭제", notes = "swagger 테스트")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable String id, @RequestParam String email) {
         System.out.println("Test DELETE");
