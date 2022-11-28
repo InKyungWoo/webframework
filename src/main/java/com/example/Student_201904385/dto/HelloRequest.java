@@ -1,40 +1,17 @@
 package com.example.Student_201904385.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+@Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class HelloRequest {
-    private String name;            // 변수 선언하고 getter & setter
+    @ApiModelProperty(value = "사용자 이름", example = "Inkyung")
+    private String name;            // getter,setter 대신 @Data
+    @ApiModelProperty(value = "사용자 레벨", example = "1")
     private int level;
+    @ApiModelProperty(value = "사용자 주소", example = "hufs")
     private String address;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    @Override
-    public String toString() {
-        return "HelloRequest{" +
-                "name='" + name + '\'' +
-                ", level=" + level +
-                ", address='" + address + '\'' +
-                '}';
-    }
 }
