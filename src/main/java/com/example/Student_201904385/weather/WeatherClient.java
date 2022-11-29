@@ -28,7 +28,7 @@ public class WeatherClient {
     public String getCurrentWeather(WeatherReq weatherReq) {
         weatherReq.setAppId(weatherClientApiKey);
         var uri = UriComponentsBuilder.fromUriString(weatherUrlWeather)
-                .queryParams(weatherReq.toMultiValueMap())          // {? 쿼리 & 쿼리}
+                .queryParams(weatherReq.toMultiValueMap())          // 상속! 여기서 함수를 바꿈에 따라 city가 동작할 수도 geo가 동작할 수도!
                 .build()
                 .encode()
                 .toUri();

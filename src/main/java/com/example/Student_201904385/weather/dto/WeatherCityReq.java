@@ -16,7 +16,7 @@ public class WeatherCityReq extends WeatherReq{
         var map = new LinkedMultiValueMap<String, String>();
 
         map.add("q", query);
-        map.add("appid", appId);        // appId protected라 갖다 쓸 수 있음 (private이면 X)
+        map.add("appid", appId);        // // WeatherReq의 appid 가져옴, protected라 갖다 쓸 수 있음 (private이면 X)
 
         return map;
 

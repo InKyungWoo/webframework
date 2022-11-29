@@ -9,7 +9,7 @@ import org.springframework.util.MultiValueMap;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SearchLocalReq {
+public class SearchLocalReq {           // 파라미터 타입
     private String query = "";
     private Integer display = 1;        // 한 번에 표시할 검사 결과 개수
     private Integer start = 1;          // 검색 시작 위치
