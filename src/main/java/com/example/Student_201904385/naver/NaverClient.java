@@ -1,6 +1,7 @@
 package com.example.Student_201904385.naver;
 
 import com.example.Student_201904385.naver.dto.SearchLocalReq;
+import com.example.Student_201904385.naver.dto.SearchLocalRes;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.ParameterizedTypeReference;
@@ -25,7 +26,7 @@ public class NaverClient {
     private String naverUrlSearchLocal;
 
     // searchLocal 구현
-    public String searchLocal(SearchLocalReq searchLocalReq) {
+    public SearchLocalRes searchLocal(SearchLocalReq searchLocalReq) {          // String -> SearchLocalRes
 
         var uri = UriComponentsBuilder.fromUriString(naverUrlSearchLocal)
                 .queryParams(searchLocalReq.toMultiValueMap())
@@ -42,7 +43,7 @@ public class NaverClient {
         headers.setContentType(MediaType.APPLICATION_JSON);
         var httpEntity = new HttpEntity<>(headers);
 
-        var responseType = new ParameterizedTypeReference<String>(){};
+        var responseType = new ParameterizedTypeReference<SearchLocalRes>(){};      // 문자로 된 정보를 통쨰로  받아옴, String -> SearchLocalRes
 
         var responseEntity = new RestTemplate().exchange(
                 uri,

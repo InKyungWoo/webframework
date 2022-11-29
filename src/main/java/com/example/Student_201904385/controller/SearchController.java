@@ -1,5 +1,6 @@
 package com.example.Student_201904385.controller;
 
+import com.example.Student_201904385.dto.SearchRequestDto;
 import com.example.Student_201904385.service.SearchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +17,7 @@ public class SearchController {
     private final SearchService searchService;
 
     @GetMapping("/local")
-    public String searchLocal(@RequestParam String query) {
+    public SearchRequestDto searchLocal(@RequestParam String query) {       // String -> SearchRequestDto
         return searchService.searchLocal(query);
     }
 }
