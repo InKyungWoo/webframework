@@ -37,4 +37,4 @@ out/
 .vscode/
 
 ### API KEY ###
-application-api-key.properties   // 이부분 복사
+application-api-key.properties
