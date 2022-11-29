@@ -1,5 +1,6 @@
 package com.example.Student_201904385.controller;
 
+import com.example.Student_201904385.dto.WeatherRequestDto;
 import com.example.Student_201904385.service.WeatherService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,13 +14,13 @@ public class WeatherController {
     private final WeatherService weatherService;        // 서비스 연결
 
     @GetMapping("/city/{name}")             // 도시 이름으로 getWeather
-    public String getCurrentWeather(@PathVariable String name) {
+    public WeatherRequestDto getCurrentWeather(@PathVariable String name) {         // String -> WeatherRequestDto
 
         return weatherService.getCurrentWeather(name);
     }
 
     @GetMapping("/geo")
-    public String getCurrentWeather(@RequestParam Double lat, @RequestParam Double lon) {
+    public WeatherRequestDto getCurrentWeather(@RequestParam Double lat, @RequestParam Double lon) {    // String -> WeatherRequestDto
         return weatherService.getCurrentWeatherWithGeo(lat, lon);
     }
 }

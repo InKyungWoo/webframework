@@ -1,5 +1,6 @@
 package com.example.Student_201904385.weather;
 
+import com.example.Student_201904385.weather.dto.WeatherDtoRes;
 import com.example.Student_201904385.weather.dto.WeatherReq;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,7 +26,7 @@ public class WeatherClient {
     private String weatherUrlWeather;
 
     // UriComponentsBuilder: url 만들어주는 기능
-    public String getCurrentWeather(WeatherReq weatherReq) {
+    public WeatherDtoRes getCurrentWeather(WeatherReq weatherReq) {
         weatherReq.setAppId(weatherClientApiKey);
         var uri = UriComponentsBuilder.fromUriString(weatherUrlWeather)
                 .queryParams(weatherReq.toMultiValueMap())          // 상속! 여기서 함수를 바꿈에 따라 city가 동작할 수도 geo가 동작할 수도!
@@ -38,7 +39,7 @@ public class WeatherClient {
         headers.setContentType(MediaType.APPLICATION_JSON);
         var httpEntity = new HttpEntity<>(headers);
 
-        var responseType = new ParameterizedTypeReference<String>(){};
+        var responseType = new ParameterizedTypeReference<WeatherDtoRes>(){};
 
         var responseEntity = new RestTemplate().exchange(
                 uri,
