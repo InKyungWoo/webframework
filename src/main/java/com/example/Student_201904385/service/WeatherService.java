@@ -1,5 +1,6 @@
 package com.example.Student_201904385.service;
 
+import com.example.Student_201904385.weather.dto.WeatherCityReq;
 import com.example.Student_201904385.weather.WeatherClient;
 import com.example.Student_201904385.weather.dto.WeatherReq;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,7 @@ public class WeatherService {
 
     public String getCurrentWeather(String city) {
 
-        var weatherReq = new WeatherReq();
+        var weatherReq = new WeatherCityReq();      // WeatherCityReq()로 변경
         weatherReq.setQuery(city);        // 도시 이름 전달
 
         var weatherRes = weatherClient.getCurrentWeather(weatherReq);

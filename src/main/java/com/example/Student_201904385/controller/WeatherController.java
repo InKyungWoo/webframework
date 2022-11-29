@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.*;
 public class WeatherController {
     private final WeatherService weatherService;        // 서비스 연결
 
-    @GetMapping("/current/{city}")
-    public String getCurrentWeather(@PathVariable String city) {
-        return weatherService.getCurrentWeather(city);
+    @GetMapping("/city/{name}")             // 도시 이름으로 getWeather
+    public String getCurrentWeather(@PathVariable String name) {
+
+        return weatherService.getCurrentWeather(name);
     }
 }
