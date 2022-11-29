@@ -2,6 +2,7 @@ package com.example.Student_201904385.service;
 
 import com.example.Student_201904385.weather.dto.WeatherCityReq;
 import com.example.Student_201904385.weather.WeatherClient;
+import com.example.Student_201904385.weather.dto.WeatherGeoReq;
 import com.example.Student_201904385.weather.dto.WeatherReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,4 +21,15 @@ public class WeatherService {
 
         return weatherRes;                // response 전달
     }
+
+    public  String getCurrentWeatherWithGeo(Double lat, Double lon) {
+        var weatherReq = new WeatherGeoReq();       // 지리 정보로 받아오기
+        weatherReq.setLat(lat);
+        weatherReq.setLon(lon);
+
+        var weatherRes = weatherClient.getCurrentWeather(weatherReq);
+
+        return weatherRes;
+    }
+
 }

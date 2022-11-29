@@ -17,4 +17,9 @@ public class WeatherController {
 
         return weatherService.getCurrentWeather(name);
     }
+
+    @GetMapping("/geo")
+    public String getCurrentWeather(@RequestParam Double lat, @RequestParam Double lon) {
+        return weatherService.getCurrentWeatherWithGeo(lat, lon);
+    }
 }
