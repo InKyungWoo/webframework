@@ -11,6 +11,21 @@ import java.util.List;
 @AllArgsConstructor
 public class WeatherDtoRes {
 
+    private String base;                                        // 개별 info
+    private int visibility;
+    private int dt;
+    private int timezone;
+    private int id;
+    private String name;
+    private int cod;
+
+    private WeatherDtoRes.DtoResCoord coord;                    // 클래스 뭉치로 보내기
+    private List<WeatherDtoRes.DtoResWeather> weather;          // weather info는 리스트
+    private WeatherDtoRes.DtoResMain main;
+    private WeatherDtoRes.DtoResWind wind;
+    private WeatherDtoRes.DtoResClouds clouds;
+    private WeatherDtoRes.DtoResSys sys;
+
     @AllArgsConstructor
     @NoArgsConstructor
     @Data
@@ -19,7 +34,6 @@ public class WeatherDtoRes {
         private double lat;
     }
 
-    private List<DtoResWeather> weather;
     @AllArgsConstructor
     @NoArgsConstructor
     @Data
@@ -29,8 +43,6 @@ public class WeatherDtoRes {
         private String description;
         private String icon;
     }
-
-    private String base;
 
     @AllArgsConstructor
     @NoArgsConstructor
@@ -43,8 +55,6 @@ public class WeatherDtoRes {
         private int pressure;
         private int humidity;
     }
-
-    private int visibility;
 
     @AllArgsConstructor
     @NoArgsConstructor
@@ -61,8 +71,6 @@ public class WeatherDtoRes {
         private int all;
     }
 
-    private int dt;
-
     @AllArgsConstructor
     @NoArgsConstructor
     @Data
@@ -73,9 +81,5 @@ public class WeatherDtoRes {
         private int sunrise;
         private int sunset;
     }
-    private int timezone;
-    private int id;
-    private String name;
-    private int cod;
 
 }

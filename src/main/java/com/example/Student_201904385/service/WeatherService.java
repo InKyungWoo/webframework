@@ -20,12 +20,21 @@ public class WeatherService {
 
         var weatherRes = weatherClient.getCurrentWeather(weatherReq);
 
-        var weather = weatherRes.getWeather().stream().findFirst().get();
         var result = new WeatherRequestDto();
-        result.setId(weather.getId());
-        result.setMain(weather.getMain());
-        result.setDescription(weather.getDescription());
-        result.setIcon(weather.getIcon());
+
+        result.setBase(weatherRes.getBase());
+        result.setName(weatherRes.getName());
+        result.setVisibility(weatherRes.getVisibility());
+        result.setTimeZone(weatherRes.getTimezone());
+        result.setCoord(weatherRes.getCoord());
+        result.setWeather(weatherRes.getWeather());
+        result.setMain(weatherRes.getMain());
+        result.setWind(weatherRes.getWind());
+        result.setClouds(weatherRes.getClouds());
+        result.setDt(weatherRes.getDt());
+        result.setSys(weatherRes.getSys());
+        result.setId(weatherRes.getId());
+        result.setCod(weatherRes.getCod());
 
         return result;
     }
@@ -37,12 +46,21 @@ public class WeatherService {
 
         var weatherRes = weatherClient.getCurrentWeather(weatherReq);
 
-        var weather = weatherRes.getWeather().stream().findFirst().get();
         var result = new WeatherRequestDto();
-        result.setId(weather.getId());
-        result.setMain(weather.getMain());
-        result.setDescription(weather.getDescription());
-        result.setIcon(weather.getIcon());
+
+        result.setBase(weatherRes.getBase());
+        result.setName(weatherRes.getName());
+        result.setVisibility(weatherRes.getVisibility());
+        result.setTimeZone(weatherRes.getTimezone());
+        result.setCoord(weatherRes.getCoord());
+        result.setWeather(weatherRes.getWeather());
+        result.setMain(weatherRes.getMain());
+        result.setWind(weatherRes.getWind());
+        result.setClouds(weatherRes.getClouds());
+        result.setDt(weatherRes.getDt());
+        result.setSys(weatherRes.getSys());
+        result.setId(weatherRes.getId());
+        result.setCod(weatherRes.getCod());
 
         return result;
     }
