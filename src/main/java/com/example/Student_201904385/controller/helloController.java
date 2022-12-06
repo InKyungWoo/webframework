@@ -37,7 +37,7 @@ public class helloController {
 
         return requestParam.toString();
     }
-    @ApiOperation(value = "Hi", notes = "hi")
+    @ApiOperation(value = "그냥 Hi", notes = "hi")
     @GetMapping("/hi")
     public String hi() {
         return "hi";

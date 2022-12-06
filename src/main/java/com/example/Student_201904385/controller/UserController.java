@@ -65,7 +65,7 @@ public class UserController {
 
         return  ResponseEntity.status(HttpStatus.CREATED).body(requestData);
     }
-    @ApiOperation(value = "사용자 정보 GET")
+    @ApiOperation(value = "사용자 정보 GET", notes = "DB 테스트")
     //@GetMapping("/get")
     @GetMapping("/{user_id}")
     public PostUserRequest getUser(@PathVariable String user_id) {
@@ -75,7 +75,7 @@ public class UserController {
         return memberService.findById(user_id);
     }
 
-    @ApiOperation(value = "사용자 정보 삭제")
+    @ApiOperation(value = "사용자 정보 삭제", notes = "DB 테스트")
     //@DeleteMapping("/delete/{id}")
     @DeleteMapping("/{user_id}")
     public void delete(@PathVariable String user_id) {
